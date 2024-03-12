@@ -47,31 +47,6 @@ void passer_espaces()
   }
 }
 
-/*
-void lire_balise(char *nom_balise)
-{
-  consommer_terminal('<');
-  // Utilisation de  size_t au lieu de int pour l'avertissement.
-  for (size_t i = 0; i < strlen(nom_balise); i++)
-  {
-    consommer_terminal(nom_balise[i]);
-  }
-  consommer_terminal('>');
-  passer_espaces();
-}
-
-void lire_balise_partielle(char *nom_balise)
-{
-  // pareil qu'au-dessus
-  for (size_t i = 0; i < strlen(nom_balise); i++)
-  {
-    consommer_terminal(nom_balise[i]);
-  }
-  consommer_terminal('>');
-  passer_espaces();
-}
-*/
-
 void lire_balise(){
   strcpy(curr_tag, "");
 
@@ -83,8 +58,9 @@ void lire_balise(){
     lire_caractere();
   }
   curr_tag[cpt] = '\0';
-
   consommer_terminal('>'); // Si on lit une balise, elle finit par un ">"
+
+  strcpy(tag_value, ""); // Si on lit une balise alors sa valeur est nulle
 }
 
 void ecraser_balise(char* nom){
@@ -112,32 +88,39 @@ void lire_et_valider_balise(char* nom){
   valider_balise(nom);
 }
 
-void annexes()
-{
+void ecraser_tag_value(char* valeur){
+  strcpy(tag_value, valeur);
+}
+
+void afficher_token(){
+  printf("\n(Balise : %s, valeur : %s)\n", curr_tag, tag_value);
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void annexes(){
   while (curr_char != EOF)
   {
-    lire_balise();
+    lire_et_valider_balise("annexe");
     contenu();
+    lire_et_valider_balise("/annexe");
   }
 }
 
-void document()
-{
+void document(){
   lire_et_valider_balise("document");
   contenu();
   lire_et_valider_balise("/document");
   passer_espaces();
 }
 
-void texte_enrichi()
-{
+void texte_enrichi(){
   document();
   annexes();
 }
 
-void contenu()
-{
-  while(strcmp(curr_tag, "/annexe") && strcmp(curr_tag, "/document") && strcmp(curr_tag, "/section") && curr_char != EOF){
+void contenu(){
+  while(strcmp(curr_tag, "/annexe") && strcmp(curr_tag, "/document") && curr_char != EOF){
     passer_espaces();
 
     if(curr_char == '<'){
@@ -145,51 +128,61 @@ void contenu()
       // On lit et stocke la balise
       lire_balise();
       passer_espaces();
-
-      if(!strcmp(curr_tag, "section")){
-        section();
-      }
-      else if(!strcmp(curr_tag, "titre")){
-        titre();
-      }
-      else if (!strcmp(curr_tag, "liste")){
-        liste();
+      
+      if(strcmp(curr_tag,"/section") && strcmp(curr_tag,"/document") && strcmp(curr_tag, "/annexe")){
+        if(!strcmp(curr_tag, "section")){
+          section();
+        }
+        else if(!strcmp(curr_tag, "titre")){
+          titre();
+        }
+        else if (!strcmp(curr_tag, "liste")){
+          liste();
+        }
+        else if(!strcmp(curr_tag, "br/")){
+          ecraser_balise("retour_ligne");
+          ecraser_tag_value("\n");
+        }
+        else{
+          fprintf(stderr, "\nMauvaise balise rencontree, balise rencontree : %s\n", curr_tag);
+          exit(2);
+        }
       }else{
-        printf(stderr, "Mauvaise balise de rencontree");
+        return;
       }
     }else{
-      ecraser_balise("mot");
       mot_enrichi();
     }
     passer_espaces();
   }
 }
 
-void section()
-{
+void section(){
+  lire_et_valider_balise("section");
   contenu();
-  valider_balise("/section");
+  lire_et_valider_balise("/section");
 }
 
-void titre()
-{
+void titre(){
+  lire_et_valider_balise("titre");
   texte();
-  lire_balise();
+  lire_et_valider_balise("/titre");
 }
 
-void liste()
-{
+void liste(){
+  lire_et_valider_balise("liste");
   while (curr_char != EOF && strcmp(curr_tag, "/liste"))
   {
     item();
     passer_espaces();
+    lire_balise(); // On lit la balise pour s'assurer que la balise suivante n'est pas /liste avant de redémarrer et de rappeler item()
   }
-  lire_balise();
+  lire_et_valider_balise("/liste");
 }
 
 void item()
 {
-  lire_balise();
+  lire_et_valider_balise("item");
   passer_espaces();
   if(curr_char == '<'){
     liste_texte();
@@ -197,22 +190,22 @@ void item()
   else{
     texte_liste();
   }
-  texte_liste();
-  lire_balise();
+  lire_et_valider_balise("/item");
 }
 
-void liste_texte()
-{
+void liste_texte(){
   if (curr_char == '<')
   {
-    liste();
-    texte_liste();
+    lire_balise();
+    if(!strcmp(curr_tag, "liste")){
+      liste();
+      texte_liste();
+    }
   }
   // epsilon
 }
 
-void texte_liste()
-{
+void texte_liste(){
   if (curr_char != '<')
   {
     texte();
@@ -221,8 +214,7 @@ void texte_liste()
   // epsilon
 }
 
-void texte()
-{
+void texte(){
   while (curr_char != EOF && curr_char != '<')
   {
     mot_enrichi();
@@ -230,8 +222,7 @@ void texte()
   }
 }
 
-void mot_enrichi()
-{
+void mot_enrichi(){
   if(curr_char == '<'){
     mot_important();
   }
@@ -240,9 +231,8 @@ void mot_enrichi()
   }
 }
 
-void mot_important()
-{
-  lire_balise();
+void mot_important(){
+  lire_et_valider_balise("important");
   while(curr_char != '<'){
     mot_simple();
     
@@ -255,7 +245,7 @@ void mot_important()
     lire_caractere(); // Puis le lire
     */
   }
-  lire_balise();
+  lire_et_valider_balise("/important");
 }
 
 void mot_simple(){
@@ -269,14 +259,15 @@ void mot_simple(){
   }
   tag_value[cpt] = '\0';
 
+  ecraser_balise("mot");
   passer_espaces();
 }
 
 int main(int argc, char** argv)
 {
   if(argc != 2){
-      printf("nb paramètres incorrect\n");
-      exit(-2);
+    printf("Nombre de parametres incorrect, veuillez ajouter le nom du fichier suivi de l'extension\n");
+    exit(-2);
   }
   amorcer(argv[1]);
   texte_enrichi();
