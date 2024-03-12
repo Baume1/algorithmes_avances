@@ -1,0 +1,19 @@
+<DOCUMENT>
+    <TITRE>Memoire</TITRE>
+    <SECTION>
+        <TITRE>Introduction</TITRE>
+        Bla bla        
+        <LISTE>
+            <ITEM>UnPeu de<IMPORTANT>texte.</IMPORTANT></ITEM>
+        </LISTE>
+    </SECTION>
+    <SECTION>
+        <TITRE>Annexes</TITRE>
+        <SECTION>
+            <TITRE>TabledesMatieres</TITRE>
+        </SECTION>
+        <SECTION>
+            <TITRE>Tabledesfigures</TITRE>
+        </SECTION>
+    </SECTION>
+</DOCUMENT>
