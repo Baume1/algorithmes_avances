@@ -6,6 +6,9 @@
 FILE *mon_fichier;
 char curr_char = '\0';
 
+char curr_tag[81];
+char tag_value[81];
+
 void amorcer()
 {
     mon_fichier = fopen("test1.txt", "r");
