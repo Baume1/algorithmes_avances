@@ -9,9 +9,9 @@ char curr_char = '\0';
 char curr_tag[81];
 char tag_value[81];
 
-void amorcer()
+void amorcer(char* nom_fichier)
 {
-    mon_fichier = fopen("test1.txt", "r");
+    mon_fichier = fopen(nom_fichier, "r");
     if (mon_fichier == NULL)
     {
         printf("Probleme de fichier\nLe creer ?\n");
@@ -47,6 +47,7 @@ void passer_espaces()
   }
 }
 
+/*
 void lire_balise(char *nom_balise)
 {
   consommer_terminal('<');
@@ -69,21 +70,63 @@ void lire_balise_partielle(char *nom_balise)
   consommer_terminal('>');
   passer_espaces();
 }
+*/
+
+void lire_balise(){
+  strcpy(curr_tag, "");
+
+  consommer_terminal('<'); // Si on lit une balise, elle commence par un "<"
+
+  size_t cpt = 0;
+  while(curr_char != '>'){
+    curr_tag[cpt++] = curr_char;
+    lire_caractere();
+  }
+  curr_tag[cpt] = '\0';
+
+  consommer_terminal('>'); // Si on lit une balise, elle finit par un ">"
+}
+
+void ecraser_balise(char* nom){
+  strcpy(curr_tag, "");
+
+  size_t cpt = 0;
+  while (nom[cpt] != '\0'){
+    curr_tag[cpt] = nom[cpt];
+    cpt++;
+  }
+  curr_tag[cpt] = '\0';
+}
+
+void valider_balise(char* nom){
+  if(strcmp(curr_tag, nom)){
+    fprintf(stderr, "Mauvaise balise '%s', balise attendue : %s\n", curr_tag, nom);
+    exit(2);
+  }
+}
+
+void lire_et_valider_balise(char* nom){
+  if(strcmp(curr_tag, nom)){
+    lire_balise();
+  }
+  valider_balise(nom);
+}
 
 void annexes()
 {
   while (curr_char != EOF)
   {
-    lire_balise("annexe");
+    lire_balise();
     contenu();
   }
 }
 
 void document()
 {
-  lire_balise("document");
+  lire_et_valider_balise("document");
   contenu();
-  // /document lu par le buffer
+  lire_et_valider_balise("/document");
+  passer_espaces();
 }
 
 void texte_enrichi()
@@ -92,82 +135,61 @@ void texte_enrichi()
   annexes();
 }
 
-/*
-char* stocker_balise(){
-  char buffer[81];
-  consommer_terminal('<');
-  size_t cpt = 0;
-  while(curr_char != '>'){
-    buffer[cpt++] = curr_char;
-  }
-  consommer_terminal('>');
-  buffer[cpt] = '\0';
-  return buffer;
-}
-*/
-
 void contenu()
 {
-  char buffer[81];
-  while(strcmp(buffer, "/annexe") && strcmp(buffer, "/document") && strcmp(buffer, "/section") && curr_char != EOF){
-    strcpy(buffer, "");
+  while(strcmp(curr_tag, "/annexe") && strcmp(curr_tag, "/document") && strcmp(curr_tag, "/section") && curr_char != EOF){
     passer_espaces();
 
-    // On lit et stocke la balise
     if(curr_char == '<'){
 
-      consommer_terminal('<');
-      size_t cpt = 0;
-      while(curr_char != '>'){
-        buffer[cpt++] = curr_char;
-        lire_caractere();
-      }
-      buffer[cpt] = '\0';
-      consommer_terminal('>');
-
+      // On lit et stocke la balise
+      lire_balise();
       passer_espaces();
-      if(!strcmp(buffer, "section")){
+
+      if(!strcmp(curr_tag, "section")){
         section();
       }
-      else if(!strcmp(buffer, "titre")){
+      else if(!strcmp(curr_tag, "titre")){
         titre();
       }
-      else if (!strcmp(buffer, "liste")){
+      else if (!strcmp(curr_tag, "liste")){
         liste();
+      }else{
+        printf(stderr, "Mauvaise balise de rencontree");
       }
     }else{
+      ecraser_balise("mot");
       mot_enrichi();
     }
     passer_espaces();
-    //printf("\n Buffer : %s et curr char : %c\n", buffer, curr_char);
   }
-  printf("Sortie boucle\n");
 }
 
 void section()
 {
   contenu();
+  valider_balise("/section");
 }
 
 void titre()
 {
   texte();
-  lire_balise("/titre");
+  lire_balise();
 }
 
 void liste()
 {
-  while (curr_char != EOF) // pas certain de l'autre condition m'enfin
+  while (curr_char != EOF && strcmp(curr_tag, "/liste"))
   {
     item();
     passer_espaces();
   }
-  lire_balise("/liste");
+  lire_balise();
 }
 
 void item()
 {
-  lire_balise("item");
+  lire_balise();
   passer_espaces();
   if(curr_char == '<'){
     liste_texte();
@@ -176,7 +198,7 @@ void item()
     texte_liste();
   }
   texte_liste();
-  lire_balise("/item");
+  lire_balise();
 }
 
 void liste_texte()
@@ -220,7 +242,7 @@ void mot_enrichi()
 
 void mot_important()
 {
-  lire_balise("important");
+  lire_balise();
   while(curr_char != '<'){
     mot_simple();
     
@@ -233,21 +255,30 @@ void mot_important()
     lire_caractere(); // Puis le lire
     */
   }
-  lire_balise("/important");
+  lire_balise();
 }
 
 void mot_simple(){
+  strcpy(tag_value, ""); // On écrase la valeur précédente
+
+  size_t cpt = 0;
+  // Puis on lit le "contenu" du document jusqu'à arriver à un espace ou à la fin du doc
   while(!isspace(curr_char) && curr_char != EOF){
-    // Stocker le caractère
+    tag_value[cpt++] = curr_char; // Stocker le caractère
     lire_caractere(); // Puis le lire/passer
   }
+  tag_value[cpt] = '\0';
+
   passer_espaces();
 }
 
-int main()
+int main(int argc, char** argv)
 {
-
-  amorcer();
+  if(argc != 2){
+      printf("nb paramètres incorrect\n");
+      exit(-2);
+  }
+  amorcer(argv[1]);
   texte_enrichi();
   fclose(mon_fichier);
 
