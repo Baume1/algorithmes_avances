@@ -61,6 +61,8 @@ void lire_balise(){
   consommer_terminal('>'); // Si on lit une balise, elle finit par un ">"
 
   strcpy(tag_value, ""); // Si on lit une balise alors sa valeur est nulle
+
+  afficher_token();
 }
 
 void ecraser_balise(char* nom){
@@ -72,6 +74,7 @@ void ecraser_balise(char* nom){
     cpt++;
   }
   curr_tag[cpt] = '\0';
+  afficher_token();
 }
 
 void valider_balise(char* nom){
@@ -170,6 +173,7 @@ void titre(){
 }
 
 void liste(){
+  passer_espaces();
   lire_et_valider_balise("liste");
   while (curr_char != EOF && strcmp(curr_tag, "/liste"))
   {
