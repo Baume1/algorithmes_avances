@@ -1,9 +1,9 @@
 <document>
- <section>
- Bonjour le Monde.
- </section>
+    <section>
+        Bonjour le Monde.
+    </section>
 </document>
 <annexe>
- Auteur : Weinberg Benjamin
- Date : 23/01/2024
+    Auteur : Weinberg Benjamin
+    Date : 23/01/2024
 </annexe>
