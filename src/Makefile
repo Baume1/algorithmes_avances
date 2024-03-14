@@ -15,4 +15,4 @@ non_terminaux.o : non_terminaux.c non_terminaux.h main.h
 
 
 clean:
-	del *.o 
+	del *.o main.exe
