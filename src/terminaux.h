@@ -1,9 +1,7 @@
 #ifndef TERMINAUX_H
 #define TERMINAUX_H
 
-#include "globals.h"
-
-extern char curr_char;
+#include "main.h"
 
 /*
    Initialise le processus de lecture du fichier.

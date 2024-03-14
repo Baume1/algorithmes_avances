@@ -1,7 +1,7 @@
 #ifndef NON_TERMINAUX_H
 #define NON_TERMINAUX_H
 
-#include "globals.h"
+#include "main.h"
 #include "terminaux.h"
 
 void annexes();
