@@ -8,6 +8,9 @@ char curr_char = '\0'; // On déclare le caractère actuel
 char curr_tag[81];  // L'étiquette du token
 char tag_value[81]; // La valeur du token
 
+t_noeud racine; // Le premier noeud de l'arbre (document, normalement)
+t_noeud curr_node; // Le noeud que l'on traite actuellement
+
 int main(int argc, char **argv)
 {
   // On vérifie qu'on a bien un nom de fichier donné en paramètre
