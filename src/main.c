@@ -1,5 +1,6 @@
 #include "non_terminaux.h"
 #include "terminaux.h"
+#include "arbre.h"
 
 // Ces variables sont globales (vues dans tout le programme)
 FILE *mon_fichier;     // On déclare ici le fichier
@@ -8,8 +9,8 @@ char curr_char = '\0'; // On déclare le caractère actuel
 char curr_tag[81];  // L'étiquette du token
 char tag_value[81]; // La valeur du token
 
-t_noeud racine; // Le premier noeud de l'arbre (document, normalement)
-t_noeud curr_node; // Le noeud que l'on traite actuellement
+t_noeud* racine; // Le premier noeud de l'arbre (document, normalement)
+t_noeud* curr_node; // Le noeud que l'on traite actuellement
 
 int main(int argc, char **argv)
 {
@@ -19,8 +20,11 @@ int main(int argc, char **argv)
     printf("Nombre de parametres incorrect, veuillez ajouter le nom du fichier suivi de l'extension\n");
     exit(-2);
   }
+  initialiser_arbre();
   amorcer(argv[1]);
   texte_enrichi();
+
+  afficher_arbre();
   fclose(mon_fichier);
 
   return 0;

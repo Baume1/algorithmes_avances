@@ -12,7 +12,7 @@ void amorcer(char *nom_fichier)
     {
         printf("Fichier introuvable, verifiez que vous avez entre une extension\nLe creer malgre tout ?\n");
         int test = 0;
-        (scanf("%d", &test) ? mon_fichier = fopen("test1.txt", "w") : 0);
+        (scanf("%d", &test) ? mon_fichier = fopen(nom_fichier, "w") : 0);
         exit(-1);
     }
     lire_caractere();
@@ -64,7 +64,8 @@ void lire_balise()
 
     strcpy(tag_value, ""); // Si on lit une balise alors sa valeur est nulle
 
-    // afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
+    maj_arbre(); // Pour ajouter le token à l'arbre
+    afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
 }
 
 void ecraser_balise(char *nom)
@@ -80,7 +81,9 @@ void ecraser_balise(char *nom)
         cpt++;
     }
     curr_tag[cpt] = '\0'; // On rajoute le \0 car il est évité à cause du while
-    // afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
+
+    maj_arbre(); // Pour ajouter le token à l'arbre
+    afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
 }
 
 void valider_balise(char *nom)

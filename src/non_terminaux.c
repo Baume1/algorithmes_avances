@@ -57,8 +57,7 @@ void contenu()
                 }
                 else if (!strcmp(curr_tag, "br/"))
                 {
-                    ecraser_balise("retour_ligne");
-                    ecraser_tag_value("\n");
+                    // passer
                 }
                 else
                 {
@@ -183,15 +182,6 @@ void mot_important()
     while (curr_char != '<')
     {
         mot_simple();
-
-        /*
-        // Mettre le caractère en majuscule = lui retrancher 26 + 6 (à cause des caractères entre les deux)
-        if ('a' <= curr_char && curr_char <= 'z'){
-          curr_char += 32;
-        }
-        // Stocker le caractère
-        lire_caractere(); // Puis le lire
-        */
     }
     lire_et_valider_balise("/important");
 }
