@@ -1,0 +1,155 @@
+[
+    {
+        "adresse": "447C38F0",
+        "nom": "texte_enrichi",
+        "valeur": "",
+        "pere": "0",
+        "fils": "447CE430",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CE430",
+        "nom": "document",
+        "valeur": "",
+        "pere": "447C38F0",
+        "fils": "447CF510",
+        "pt_frere": "447CF9F0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF510",
+        "nom": "section",
+        "valeur": "",
+        "pere": "447CE430",
+        "fils": "447CF5E0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF5E0",
+        "nom": "mot",
+        "valeur": "Bonjour",
+        "pere": "447CF510",
+        "fils": "447CF6B0",
+        "pt_frere": "447CF920",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF6B0",
+        "nom": "mot",
+        "valeur": "le",
+        "pere": "447CF5E0",
+        "fils": "447CF780",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF780",
+        "nom": "mot",
+        "valeur": "Monde.",
+        "pere": "447CF6B0",
+        "fils": "447CF850",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF850",
+        "nom": "/section",
+        "valeur": "",
+        "pere": "447CF780",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CF920",
+        "nom": "/document",
+        "valeur": "",
+        "pere": "0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "447CF5E0"
+        },
+        {
+        "adresse": "447CF9F0",
+        "nom": "annexe",
+        "valeur": "",
+        "pere": "0",
+        "fils": "447CFAC0",
+        "pt_frere": "0",
+        "gd_frere": "447CE430"
+        },
+        {
+        "adresse": "447CFAC0",
+        "nom": "mot",
+        "valeur": "Auteur",
+        "pere": "447CF9F0",
+        "fils": "447CFB90",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFB90",
+        "nom": "mot",
+        "valeur": ":",
+        "pere": "447CFAC0",
+        "fils": "447CFC60",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFC60",
+        "nom": "mot",
+        "valeur": "Weinberg",
+        "pere": "447CFB90",
+        "fils": "447CFD30",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFD30",
+        "nom": "mot",
+        "valeur": "Benjamin",
+        "pere": "447CFC60",
+        "fils": "447CFE00",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFE00",
+        "nom": "mot",
+        "valeur": "Date",
+        "pere": "447CFD30",
+        "fils": "447CFED0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFED0",
+        "nom": "mot",
+        "valeur": ":",
+        "pere": "447CFE00",
+        "fils": "447CFFA0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447CFFA0",
+        "nom": "mot",
+        "valeur": "23/01/2024",
+        "pere": "447CFED0",
+        "fils": "447D0070",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "447D0070",
+        "nom": "/annexe",
+        "valeur": "",
+        "pere": "447CFFA0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        }
+]

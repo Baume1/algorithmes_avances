@@ -1,0 +1,8 @@
+### Python ###
+# Dot files
+*
+!/**/
+!*.*
+
+# Images
+*.png

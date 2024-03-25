@@ -1,0 +1,704 @@
+[
+{
+    "adresse": "2FB3E430",
+    "nom": "document",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB338F0"
+    },
+    {
+    "adresse": "2FB3F510",
+    "nom": "titre",
+    "valeur": "",
+    "pere": "2FB3E430",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F5E0",
+    "nom": "mot",
+    "valeur": "Sujet",
+    "pere": "2FB3F510",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F6B0",
+    "nom": "mot",
+    "valeur": "de",
+    "pere": "2FB3F5E0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F780",
+    "nom": "mot",
+    "valeur": "projet",
+    "pere": "2FB3F6B0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F850",
+    "nom": "mot",
+    "valeur": "Nanoml",
+    "pere": "2FB3F780",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F510",
+    "nom": "titre",
+    "valeur": "",
+    "pere": "2FB3E430",
+    "fils": "2FB3F5E0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3F9F0",
+    "nom": "section",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB3F510"
+    },
+    {
+    "adresse": "2FB3FAC0",
+    "nom": "titre",
+    "valeur": "",
+    "pere": "2FB3F9F0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3FB90",
+    "nom": "mot",
+    "valeur": "Grammaire",
+    "pere": "2FB3FAC0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3FB90",
+    "nom": "mot",
+    "valeur": "Grammaire",
+    "pere": "2FB3FAC0",
+    "fils": "2FB3FC60",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3FD30",
+    "nom": "mot",
+    "valeur": "inspiree",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB3FB90"
+    },
+    {
+    "adresse": "2FB3FE00",
+    "nom": "mot",
+    "valeur": "par",
+    "pere": "2FB3FD30",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3FED0",
+    "nom": "mot",
+    "valeur": "la",
+    "pere": "2FB3FE00",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB3FFA0",
+    "nom": "mot",
+    "valeur": "forme",
+    "pere": "2FB3FED0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40070",
+    "nom": "mot",
+    "valeur": "BN.",
+    "pere": "2FB3FFA0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40C20",
+    "nom": "liste",
+    "valeur": "",
+    "pere": "2FB40070",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB405A0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "2FB40C20",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40670",
+    "nom": "mot",
+    "valeur": "texte_enrichi",
+    "pere": "2FB405A0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40740",
+    "nom": "mot",
+    "valeur": "::=",
+    "pere": "2FB40670",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40810",
+    "nom": "mot",
+    "valeur": "document",
+    "pere": "2FB40740",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40CF0",
+    "nom": "mot",
+    "valeur": "annexes",
+    "pere": "2FB40810",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB405A0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "2FB40C20",
+    "fils": "2FB40670",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB408E0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB405A0"
+    },
+    {
+    "adresse": "2FB41030",
+    "nom": "mot",
+    "valeur": "document",
+    "pere": "2FB408E0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB409B0",
+    "nom": "mot",
+    "valeur": "::=",
+    "pere": "2FB41030",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40A80",
+    "nom": "mot",
+    "valeur": "'debut_doc'",
+    "pere": "2FB409B0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40400",
+    "nom": "mot",
+    "valeur": "contenu",
+    "pere": "2FB40A80",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40B50",
+    "nom": "mot",
+    "valeur": "'fin_doc'",
+    "pere": "2FB40400",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB408E0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "2FB41030",
+    "pt_frere": "0",
+    "gd_frere": "2FB405A0"
+    },
+    {
+    "adresse": "2FB40190",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB408E0"
+    },
+    {
+    "adresse": "2FB40F60",
+    "nom": "mot",
+    "valeur": "annexes",
+    "pere": "2FB40190",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40260",
+    "nom": "mot",
+    "valeur": "::=",
+    "pere": "2FB40F60",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40330",
+    "nom": "mot",
+    "valeur": "{",
+    "pere": "2FB40260",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB404D0",
+    "nom": "mot",
+    "valeur": "'debut_annexe'",
+    "pere": "2FB40330",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42450",
+    "nom": "mot",
+    "valeur": "contenu",
+    "pere": "2FB404D0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41A90",
+    "nom": "mot",
+    "valeur": "'fin_annexe'",
+    "pere": "2FB42450",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42520",
+    "nom": "mot",
+    "valeur": "}",
+    "pere": "2FB41A90",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB40190",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "2FB40F60",
+    "pt_frere": "0",
+    "gd_frere": "2FB408E0"
+    },
+    {
+    "adresse": "2FB41750",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB40190"
+    },
+    {
+    "adresse": "2FB42AD0",
+    "nom": "mot",
+    "valeur": "...",
+    "pere": "2FB41750",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42AD0",
+    "nom": "mot",
+    "valeur": "...",
+    "pere": "2FB41750",
+    "fils": "2FB425F0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41750",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "2FB42AD0",
+    "pt_frere": "0",
+    "gd_frere": "2FB40190"
+    },
+    {
+    "adresse": "2FB40C20",
+    "nom": "liste",
+    "valeur": "",
+    "pere": "2FB40070",
+    "fils": "2FB405A0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42BA0",
+    "nom": "section",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB40C20"
+    },
+    {
+    "adresse": "2FB418F0",
+    "nom": "titre",
+    "valeur": "",
+    "pere": "2FB42BA0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41820",
+    "nom": "mot",
+    "valeur": "Demarche",
+    "pere": "2FB418F0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41C30",
+    "nom": "mot",
+    "valeur": "du",
+    "pere": "2FB41820",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42C70",
+    "nom": "mot",
+    "valeur": "projet",
+    "pere": "2FB41C30",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB418F0",
+    "nom": "titre",
+    "valeur": "",
+    "pere": "2FB42BA0",
+    "fils": "2FB41820",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42E10",
+    "nom": "liste",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB418F0"
+    },
+    {
+    "adresse": "2FB42EE0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "2FB42E10",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41D00",
+    "nom": "mot",
+    "valeur": "Ecrire",
+    "pere": "2FB42EE0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41270",
+    "nom": "mot",
+    "valeur": "une",
+    "pere": "2FB41D00",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB426C0",
+    "nom": "mot",
+    "valeur": "permiere",
+    "pere": "2FB41270",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41DD0",
+    "nom": "mot",
+    "valeur": "version",
+    "pere": "2FB426C0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41EA0",
+    "nom": "mot",
+    "valeur": "de",
+    "pere": "2FB41DD0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41410",
+    "nom": "mot",
+    "valeur": "l'analyseur",
+    "pere": "2FB41EA0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41340",
+    "nom": "mot",
+    "valeur": "gerant",
+    "pere": "2FB41410",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB41F70",
+    "nom": "mot",
+    "valeur": "les",
+    "pere": "2FB41340",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42380",
+    "nom": "mot",
+    "valeur": "balises",
+    "pere": "2FB41F70",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42790",
+    "nom": "liste",
+    "valeur": "",
+    "pere": "2FB42380",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42FB0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "2FB42790",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB414E0",
+    "nom": "mot",
+    "valeur": "document",
+    "pere": "2FB42FB0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB414E0",
+    "nom": "mot",
+    "valeur": "document",
+    "pere": "2FB42FB0",
+    "fils": "2FB422B0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42860",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB414E0"
+    },
+    {
+    "adresse": "2FB43080",
+    "nom": "mot",
+    "valeur": "annexe",
+    "pere": "2FB42860",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB43080",
+    "nom": "mot",
+    "valeur": "annexe",
+    "pere": "2FB42860",
+    "fils": "2FB42930",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42040",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB43080"
+    },
+    {
+    "adresse": "2FB42A00",
+    "nom": "mot",
+    "valeur": "section",
+    "pere": "2FB42040",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB42A00",
+    "nom": "mot",
+    "valeur": "section",
+    "pere": "2FB42040",
+    "fils": "2FB411A0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB415B0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB42A00"
+    },
+    {
+    "adresse": "2FB41680",
+    "nom": "mot",
+    "valeur": "et",
+    "pere": "2FB415B0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB421E0",
+    "nom": "mot",
+    "valeur": "le",
+    "pere": "2FB41680",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB43DE0",
+    "nom": "mot",
+    "valeur": "texte",
+    "pere": "2FB421E0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "0"
+    },
+    {
+    "adresse": "2FB415B0",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "2FB41680",
+    "pt_frere": "0",
+    "gd_frere": "2FB42A00"
+    },
+    {
+    "adresse": "2FB42040",
+    "nom": "item",
+    "valeur": "",
+    "pere": "0",
+    "fils": "2FB42A00",
+    "pt_frere": "0",
+    "gd_frere": "2FB43080"
+    },
+    {
+    "adresse": "2FB44530",
+    "nom": "mot",
+    "valeur": "",
+    "pere": "0",
+    "fils": "0",
+    "pt_frere": "0",
+    "gd_frere": "2FB42040"
+    }
+]

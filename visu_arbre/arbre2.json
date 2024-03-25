@@ -1,0 +1,173 @@
+[
+    {
+        "adresse": "2E2BE430",
+        "nom": "document",
+        "valeur": "",
+        "pere": "0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "2E2B38F0"
+        },
+        {
+        "adresse": "2E2BF510",
+        "nom": "section",
+        "valeur": "",
+        "pere": "2E2BE430",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF5E0",
+        "nom": "titre",
+        "valeur": "",
+        "pere": "2E2BF510",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF6B0",
+        "nom": "mot",
+        "valeur": "Sujet",
+        "pere": "2E2BF5E0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF780",
+        "nom": "mot",
+        "valeur": "de",
+        "pere": "2E2BF6B0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF850",
+        "nom": "mot",
+        "valeur": "projet",
+        "pere": "2E2BF780",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF920",
+        "nom": "mot",
+        "valeur": "Nanoml",
+        "pere": "2E2BF850",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF5E0",
+        "nom": "titre",
+        "valeur": "",
+        "pere": "2E2BF510",
+        "fils": "2E2BF6B0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BF510",
+        "nom": "section",
+        "valeur": "",
+        "pere": "2E2BE430",
+        "fils": "2E2BF5E0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BE430",
+        "nom": "document",
+        "valeur": "",
+        "pere": "0",
+        "fils": "2E2BF510",
+        "pt_frere": "0",
+        "gd_frere": "2E2B38F0"
+        },
+        {
+        "adresse": "2E2BFC60",
+        "nom": "annexe",
+        "valeur": "",
+        "pere": "0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "2E2BE430"
+        },
+        {
+        "adresse": "2E2BFD30",
+        "nom": "mot",
+        "valeur": "Auteur",
+        "pere": "2E2BFC60",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BFE00",
+        "nom": "mot",
+        "valeur": ":",
+        "pere": "2E2BFD30",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BFED0",
+        "nom": "mot",
+        "valeur": "Weinberg",
+        "pere": "2E2BFE00",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BFFA0",
+        "nom": "mot",
+        "valeur": "Benjamin",
+        "pere": "2E2BFED0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2BFD30",
+        "nom": "mot",
+        "valeur": "Auteur",
+        "pere": "2E2BFC60",
+        "fils": "2E2BFE00",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2C0070",
+        "nom": "mot",
+        "valeur": "Date",
+        "pere": "0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "2E2BFD30"
+        },
+        {
+        "adresse": "2E2C04D0",
+        "nom": "mot",
+        "valeur": ":",
+        "pere": "2E2C0070",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        },
+        {
+        "adresse": "2E2C05A0",
+        "nom": "mot",
+        "valeur": "23/01/2024",
+        "pere": "2E2C04D0",
+        "fils": "0",
+        "pt_frere": "0",
+        "gd_frere": "0"
+        }
+]
