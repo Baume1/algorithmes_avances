@@ -22,7 +22,7 @@ void lire_caractere()
 {
     // fgetc() lit caractère par caractère le fichier donné en paramètre
     curr_char = fgetc(mon_fichier);
-    printf("%c", curr_char);
+    // printf("%c", curr_char);
 }
 
 void consommer_terminal(char terminal)
@@ -64,8 +64,11 @@ void lire_balise()
 
     strcpy(tag_value, ""); // Si on lit une balise alors sa valeur est nulle
 
-    maj_arbre(); // Pour ajouter le token à l'arbre
-    // afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
+    if (utiliser_arbre)
+    {
+        maj_arbre(); // Pour ajouter le token à l'arbre
+    }
+    afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
 }
 
 void ecraser_balise(char *nom)
@@ -82,8 +85,12 @@ void ecraser_balise(char *nom)
     }
     curr_tag[cpt] = '\0'; // On rajoute le \0 car il est évité à cause du while
 
-    maj_arbre(); // Pour ajouter le token à l'arbre
-    // afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
+    printf("%s", curr_tag);
+    if (utiliser_arbre)
+    {
+        maj_arbre(); // Pour ajouter le token à l'arbre
+    }
+    afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
 }
 
 void valider_balise(char *nom)

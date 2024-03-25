@@ -14,25 +14,32 @@ void initialiser_arbre()
 
     racine = curr_node;
 
-    racine->fils = curr_node;
-    curr_node->pere = racine;
+    utiliser_arbre = 1;
 }
 
-void liberer_arbre(t_noeud racine)
+void remonter_noeuds_eg(char *nom_balise) // Remonter tous les noeuds qui ont le même nom que celui en paramètre
 {
-    // À voir
-}
-
-void remonter_noeuds(char *nom_balise)
-{
-    while (!strcmp(curr_node->pere->nom_balise, nom_balise))
+    if (curr_node->pere != NULL)
     {
-        // printf("\nBalise : %s, %s\n", curr_node->pere->nom_balise, curr_node->nom_balise);
-        curr_node = curr_node->pere;
+        if (!strcmp(curr_node->pere->nom_balise, nom_balise))
+        {
+            curr_node = curr_node->pere;
+        }
     }
 }
 
-void remonter_pere()
+void remonter_noeuds_ineg(char *nom_balise) // Remonter tous les noeuds qui ont un nom différent de celui en paramètre
+{
+    if (curr_node->pere != NULL)
+    {
+        if (strcmp(curr_node->pere->nom_balise, nom_balise))
+        {
+            curr_node = curr_node->pere;
+        }
+    }
+}
+
+void remonter_pere() // Remonter jusqu'au père
 {
     if (curr_node->pere == NULL && curr_node->gd_frere != NULL)
     {
@@ -45,7 +52,8 @@ void remonter_pere()
     }
     else
     {
-        printf("Le pere et grand frere n'existent pas");
+        fprintf(stderr, "\nLe pere et grand frere n'existent pas\n");
+        exit(102);
     }
 }
 
@@ -68,6 +76,12 @@ void maj_curr_node(t_noeud *new_node)
         // Sinon on lui ajoute comme frère
         new_node->gd_frere = curr_node;
         curr_node->pt_frere = new_node;
+    }
+    else
+    {
+        fprintf(stderr, "Le noeud est invalide, son frere et son pere sont deja occupes. Le noeud :\n");
+        afficher_noeud_actuel();
+        exit(101);
     }
     curr_node = new_node;
 }
@@ -95,26 +109,29 @@ void maj_arbre()
     }
     else
     {
-        if ((!strcmp(curr_node->nom_balise, "mot") && curr_tag[0] == '/') || !strcmp(curr_tag, "br/"))
-        {
-            remonter_noeuds("mot");
-        }
-
         if (curr_tag[0] == '/')
         {
+            ajouter_noeud();
+            remonter_noeuds_ineg(curr_tag + 1);
             remonter_pere();
         }
         else if (strcmp(curr_tag, "br/")) // Si c'est différent de br/
         {
             ajouter_noeud();
         }
+
+        if (!strcmp(curr_node->nom_balise, "mot") || !strcmp(curr_tag, "br/"))
+        {
+            remonter_noeuds_eg("mot");
+        }
     }
 
-    afficher_noeud_actuel();
+    // afficher_noeud_actuel();
 }
 
 void afficher_noeud_actuel()
 {
+    /*
     printf("\n\nAdresse du noeud : %X\n", curr_node);
     printf("Balise du noeud : %s\n", curr_node->nom_balise);
     printf("Valeur de la balise : %s\n", curr_node->valeur_balise);
@@ -122,28 +139,64 @@ void afficher_noeud_actuel()
     printf("Son fils : %X\n", curr_node->fils);
     printf("Son gd frere : %X\n", curr_node->gd_frere);
     printf("Son pt frere : %X\n\n", curr_node->pt_frere);
+    */
+    ///*
+    printf("\n{");
+    printf("\n\"adresse\": \"%X\",", curr_node);
+    printf("\n\"nom\": \"%s\",", curr_node->nom_balise);
+    printf("\n\"valeur\": \"%s\",", curr_node->valeur_balise);
+    printf("\n\"pere\": \"%X\",", curr_node->pere);
+    printf("\n\"fils\": \"%X\",", curr_node->fils);
+    printf("\n\"pt_frere\": \"%X\",", curr_node->pt_frere);
+    printf("\n\"gd_frere\": \"%X\"", curr_node->gd_frere);
+    printf("\n},");
+    //*/
 }
 
-void parcourir_fils(t_noeud *node)
+void afficher_noeud(t_noeud *noeud_a_afficher)
 {
-    t_noeud *fils = node;
-    afficher_noeud_actuel();
-    if (fils->fils != NULL)
+    /*
+    printf("\nAdresse du noeud : %X\n", noeud_a_afficher);
+    printf("Balise du noeud : %s\n", noeud_a_afficher->nom_balise);
+    printf("Valeur de la balise : %s\n", noeud_a_afficher->valeur_balise);
+    printf("Son pere : %X\n", noeud_a_afficher->pere);
+    printf("Son fils : %X\n", noeud_a_afficher->fils);
+    printf("Son gd frere : %X\n", noeud_a_afficher->gd_frere);
+    printf("Son pt frere : %X\n", noeud_a_afficher->pt_frere);
+    */
+    printf("\n{");
+    printf("\n\"adresse\": \"%X\",", noeud_a_afficher);
+    printf("\n\"nom\": \"%s\",", noeud_a_afficher->nom_balise);
+    printf("\n\"valeur\": \"%s\",", noeud_a_afficher->valeur_balise);
+    printf("\n\"pere\": \"%X\",", noeud_a_afficher->pere);
+    printf("\n\"fils\": \"%X\",", noeud_a_afficher->fils);
+    printf("\n\"pt_frere\": \"%X\",", noeud_a_afficher->pt_frere);
+    printf("\n\"gd_frere\": \"%X\"", noeud_a_afficher->gd_frere);
+    printf("\n},");
+}
+
+void afficher_arbre(t_noeud *noeud_a_parcourir)
+{
+    afficher_noeud(noeud_a_parcourir);
+    if (noeud_a_parcourir->fils != NULL)
     {
-        fils = fils->fils;
-        parcourir_fils(fils);
+        afficher_arbre(noeud_a_parcourir->fils);
+    }
+    if (noeud_a_parcourir->pt_frere != NULL)
+    {
+        afficher_arbre(noeud_a_parcourir->pt_frere);
     }
 }
 
-void afficher_arbre()
+void liberer_arbre(t_noeud *noeud_a_parcourir)
 {
-    t_noeud *local_node = racine;
-    while (local_node->fils != NULL || local_node->pt_frere != NULL)
+    if (noeud_a_parcourir->fils != NULL)
     {
-        parcourir_fils(local_node);
-        if (local_node->pt_frere != NULL)
-        {
-            local_node = local_node->pt_frere;
-        }
+        liberer_arbre(noeud_a_parcourir->fils);
     }
+    if (noeud_a_parcourir->pt_frere != NULL)
+    {
+        liberer_arbre(noeud_a_parcourir->pt_frere);
+    }
+    free(noeud_a_parcourir);
 }
