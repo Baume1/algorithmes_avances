@@ -27,8 +27,8 @@ int main(int argc, char **argv)
   amorcer(argv[1]);
   texte_enrichi();
 
-  printf("\nFinit sans probleme\n");
-  afficher_arbre(racine);
+  sauvegarder();
+  // afficher_arbre(racine);
 
   fclose(mon_fichier);
   liberer_arbre(racine);

@@ -68,7 +68,7 @@ void lire_balise()
     {
         maj_arbre(); // Pour ajouter le token à l'arbre
     }
-    afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
+    // afficher_token(); // A décommenter pour débugger le programme (aussi dans ecraser_balise())
 }
 
 void ecraser_balise(char *nom)
@@ -85,12 +85,11 @@ void ecraser_balise(char *nom)
     }
     curr_tag[cpt] = '\0'; // On rajoute le \0 car il est évité à cause du while
 
-    printf("%s", curr_tag);
     if (utiliser_arbre)
     {
         maj_arbre(); // Pour ajouter le token à l'arbre
     }
-    afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
+    // afficher_token(); // A décommenter pour débugger le programme (aussi dans lire_balise())
 }
 
 void valider_balise(char *nom)

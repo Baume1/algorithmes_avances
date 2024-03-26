@@ -1,0 +1,200 @@
+[
+{
+"adresse": "91F238F0",
+"nom": "texte_enrichi",
+"valeur": "",
+"pere": "0",
+"fils": "91F2E430",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E430",
+"nom": "document",
+"valeur": "",
+"pere": "91F238F0",
+"fils": "91F2E500",
+"pt_frere": "91F2EC50",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E500",
+"nom": "section",
+"valeur": "",
+"pere": "91F2E430",
+"fils": "91F2E5D0",
+"pt_frere": "91F2EB80",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E5D0",
+"nom": "titre",
+"valeur": "",
+"pere": "91F2E500",
+"fils": "91F2E6A0",
+"pt_frere": "91F2EAB0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E6A0",
+"nom": "mot",
+"valeur": "Sujet",
+"pere": "91F2E5D0",
+"fils": "91F2E770",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E770",
+"nom": "mot",
+"valeur": "de",
+"pere": "91F2E6A0",
+"fils": "91F2E840",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E840",
+"nom": "mot",
+"valeur": "projet",
+"pere": "91F2E770",
+"fils": "91F2E910",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E910",
+"nom": "mot",
+"valeur": "Nanoml",
+"pere": "91F2E840",
+"fils": "91F2E9E0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2E9E0",
+"nom": "/titre",
+"valeur": "",
+"pere": "91F2E910",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2EAB0",
+"nom": "/section",
+"valeur": "",
+"pere": "0",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "91F2E5D0"
+},
+{
+"adresse": "91F2EB80",
+"nom": "/document",
+"valeur": "",
+"pere": "0",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "91F2E500"
+},
+{
+"adresse": "91F2EC50",
+"nom": "annexe",
+"valeur": "",
+"pere": "0",
+"fils": "91F2ED20",
+"pt_frere": "0",
+"gd_frere": "91F2E430"
+},
+{
+"adresse": "91F2ED20",
+"nom": "mot",
+"valeur": "Auteur",
+"pere": "91F2EC50",
+"fils": "91F2EDF0",
+"pt_frere": "91F2FE80",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2EDF0",
+"nom": "mot",
+"valeur": ":",
+"pere": "91F2ED20",
+"fils": "91F2EEC0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2EEC0",
+"nom": "mot",
+"valeur": "Weinberg",
+"pere": "91F2EDF0",
+"fils": "91F2EF90",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2EF90",
+"nom": "mot",
+"valeur": "Benjamin",
+"pere": "91F2EEC0",
+"fils": "91F2F060",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2F060",
+"nom": "br/",
+"valeur": "",
+"pere": "91F2EF90",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2FE80",
+"nom": "mot",
+"valeur": "Date",
+"pere": "0",
+"fils": "91F2FA70",
+"pt_frere": "91F2F4C0",
+"gd_frere": "91F2ED20"
+},
+{
+"adresse": "91F2FA70",
+"nom": "mot",
+"valeur": ":",
+"pere": "91F2FE80",
+"fils": "91F2FF50",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2FF50",
+"nom": "mot",
+"valeur": "23/01/2024",
+"pere": "91F2FA70",
+"fils": "91F2FCE0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2FCE0",
+"nom": "br/",
+"valeur": "",
+"pere": "91F2FF50",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "0"
+},
+{
+"adresse": "91F2F4C0",
+"nom": "/annexe",
+"valeur": "",
+"pere": "0",
+"fils": "0",
+"pt_frere": "0",
+"gd_frere": "91F2FE80"
+},
+]
