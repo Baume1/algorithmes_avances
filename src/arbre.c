@@ -2,7 +2,6 @@
 #include "arbre.h"
 
 FILE *fichier_sauvegarde;
-int sauvegarde = 0;
 
 void initialiser_arbre()
 {
