@@ -1,6 +1,7 @@
 #include "non_terminaux.h"
 #include "terminaux.h"
 #include "arbre.h"
+#include "affichage.h"
 
 // Ces variables sont globales (vues dans tout le programme)
 FILE *mon_fichier;     // On déclare ici le fichier
@@ -29,6 +30,8 @@ int main(int argc, char **argv)
 
   sauvegarder();
   // afficher_arbre(racine);
+
+  rendre_texte(racine);
 
   fclose(mon_fichier);
   liberer_arbre(racine);

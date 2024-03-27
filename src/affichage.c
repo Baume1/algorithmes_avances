@@ -1,10 +1,12 @@
-#include "main.h"
+#include "affichage.h"
 
 const int taille_fenetre = 50;
 int fenetre_actu = taille_fenetre;
 
 int position = 0;
 int tabulations = 0;
+
+int est_important = 0;
 
 void retour_ligne()
 {
@@ -64,5 +66,115 @@ void debuter_ligne()
     for (position; position < taille_fenetre - fenetre_actu; position++)
     {
         printf("|");
+    }
+    // On décale selon le nombre de décalage
+    for (position; position < taille_fenetre - fenetre_actu + tabulations; position++)
+    {
+        printf(" ");
+    }
+}
+
+void inserer_mot(char *mot)
+{
+    size_t cpt_mot = 0;
+    while (mot[cpt_mot] != '\0')
+    {
+        if (est_important)
+        {
+            if (mot[cpt_mot] >= 'a' && mot[cpt_mot] <= 'z')
+            {
+                printf("%c", mot[cpt_mot] - 32); // Pour convertir en majuscule
+            }
+            else
+            {
+                printf("%c", mot[cpt_mot]);
+            }
+        }
+        else
+        {
+            printf("%c", mot[cpt_mot]);
+        }
+        cpt_mot++;
+        position++;
+    }
+    printf(" "); // On laisse un espace pour un nouveau mot
+    position++;
+}
+
+void traiter_noeud(t_noeud *noeud)
+{
+    // J'aurais dû utiliser un enum...
+    if (!strcmp(noeud->nom_balise, "mot"))
+    {
+        if (position + strlen(noeud->valeur_balise) + 1 < fenetre_actu)
+        {
+            inserer_mot(noeud->valeur_balise);
+        }
+        else
+        {
+            finaliser_ligne();
+            debuter_ligne();
+            inserer_mot(noeud->valeur_balise);
+        }
+        if (noeud->fils == NULL)
+        {
+            finaliser_ligne();
+        }
+    }
+    else if (!strcmp(noeud->nom_balise, "document") || !strcmp(noeud->nom_balise, "annexe") || !strcmp(noeud->nom_balise, "section"))
+    {
+        ouvrir_fenetre();
+        debuter_ligne();
+    }
+    else if (!strcmp(noeud->nom_balise, "/document") || !strcmp(noeud->nom_balise, "/annexe") || !strcmp(noeud->nom_balise, "/section"))
+    {
+        fermer_fenetre();
+    }
+    else if (!strcmp(noeud->nom_balise, "titre") || !strcmp(noeud->nom_balise, "important"))
+    {
+        est_important = 1;
+    }
+    else if (!strcmp(noeud->nom_balise, "/titre") || !strcmp(noeud->nom_balise, "/important"))
+    {
+        finaliser_ligne();
+        est_important = 0;
+    }
+    else if (!strcmp(noeud->nom_balise, "item"))
+    {
+        printf("#  ");
+        position += 3;
+    }
+    else if (!strcmp(noeud->nom_balise, "/item"))
+    {
+        finaliser_ligne();
+        debuter_ligne();
+    }
+    else if (!strcmp(noeud->nom_balise, "liste"))
+    {
+        debuter_ligne();
+        tabulations += 2;
+    }
+    else if (!strcmp(noeud->nom_balise, "/liste"))
+    {
+        finaliser_ligne();
+        tabulations -= 2;
+    }
+    else if (!strcmp(noeud->nom_balise, "br/"))
+    {
+        finaliser_ligne();
+        debuter_ligne();
+    }
+}
+
+void rendre_texte(t_noeud *noeud_a_parcourir)
+{
+    traiter_noeud(noeud_a_parcourir);
+    if (noeud_a_parcourir->fils != NULL)
+    {
+        rendre_texte(noeud_a_parcourir->fils);
+    }
+    if (noeud_a_parcourir->pt_frere != NULL)
+    {
+        rendre_texte(noeud_a_parcourir->pt_frere);
     }
 }
