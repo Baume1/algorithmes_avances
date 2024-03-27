@@ -1,12 +1,12 @@
 #include "affichage.h"
 
-const int taille_fenetre = 50;
-int fenetre_actu = taille_fenetre;
+const int taille_fenetre = 50; // Taille maximale de la fenêtre
+int fenetre_actu = taille_fenetre; // Taille de la fenêtre actuelle
 
-int position = 0;
-int tabulations = 0;
+int position = 0; // On démarre à 0
+int tabulations = 0; // Aucune tabulation au début du document
 
-int est_important = 0;
+int est_important = 0; // Par défaut, toutes les lettres sont en minuscules
 
 void retour_ligne()
 {
@@ -16,12 +16,12 @@ void retour_ligne()
 
 void limite_fenetre()
 {
-    for (position; position < taille_fenetre - fenetre_actu; position++) // On met autant de "|" que le décalage
+    for (position; position < taille_fenetre - fenetre_actu; position++) // On met autant de "|" que le décalage l'ordonne
     {
         printf("|");
     }
     printf("+");                                        // On dessine le coin gauche
-    for (position; position < fenetre_actu; position++) // On met autant de tirets que la taille de la fenêtre actuelle§/qu'on dessine
+    for (position; position < fenetre_actu; position++) // On met autant de tirets que la taille de la fenêtre actuelle qu'on dessine
     {
         printf("-");
     }
@@ -79,33 +79,45 @@ void inserer_mot(char *mot)
     size_t cpt_mot = 0;
     while (mot[cpt_mot] != '\0')
     {
-        if (est_important)
+        if (est_important) // Si le mot est important, on le met en majuscules
         {
-            if (mot[cpt_mot] >= 'a' && mot[cpt_mot] <= 'z')
+            if (mot[cpt_mot] >= 'a' && mot[cpt_mot] <= 'z') // On vérifie si c'est une lettre et qu'elle est bien minuscule
             {
                 printf("%c", mot[cpt_mot] - 32); // Pour convertir en majuscule
             }
-            else
+            else // On l'ajoute sinon
             {
                 printf("%c", mot[cpt_mot]);
             }
         }
-        else
+        else // On ajoute juste le caractère dans le cas contraire
         {
             printf("%c", mot[cpt_mot]);
         }
-        cpt_mot++;
-        position++;
+        cpt_mot++; // Le compteur du mot
+        position++; // Et la position est changée aussi
     }
     printf(" "); // On laisse un espace pour un nouveau mot
-    position++;
+    position++; // On vient de mettre un espace donc on incrémente de 1 la position
 }
 
 void traiter_noeud(t_noeud *noeud)
 {
     // J'aurais dû utiliser un enum...
-    if (!strcmp(noeud->nom_balise, "mot"))
+    if (!strcmp(noeud->nom_balise, "mot") && strcmp(noeud->valeur_balise, "")) // Cas : mot non vide
     {
+        if (noeud->pere != NULL)
+        {
+            if (strcmp(noeud->pere->nom_balise, "mot"))
+            {
+                debuter_ligne();
+            }
+        }
+        else if (noeud->gd_frere != NULL)
+        {
+            debuter_ligne();
+        }
+
         if (position + strlen(noeud->valeur_balise) + 1 < fenetre_actu)
         {
             inserer_mot(noeud->valeur_balise);
@@ -116,64 +128,58 @@ void traiter_noeud(t_noeud *noeud)
             debuter_ligne();
             inserer_mot(noeud->valeur_balise);
         }
-        if (noeud->fils == NULL)
+        if (noeud->fils == NULL || strcmp(noeud->fils->nom_balise, "mot") && strcmp(noeud->fils->nom_balise, "br/"))
         {
             finaliser_ligne();
         }
     }
-    else if (!strcmp(noeud->nom_balise, "document") || !strcmp(noeud->nom_balise, "annexe") || !strcmp(noeud->nom_balise, "section"))
+    else if (!strcmp(noeud->nom_balise, "document") || !strcmp(noeud->nom_balise, "annexe") || !strcmp(noeud->nom_balise, "section")) // Cas : début document, début annexe ou début section
     {
         ouvrir_fenetre();
         debuter_ligne();
     }
-    else if (!strcmp(noeud->nom_balise, "/document") || !strcmp(noeud->nom_balise, "/annexe") || !strcmp(noeud->nom_balise, "/section"))
+    else if (!strcmp(noeud->nom_balise, "/document") || !strcmp(noeud->nom_balise, "/annexe") || !strcmp(noeud->nom_balise, "/section")) // Cas : fin document, fin annexe ou fin section
     {
         fermer_fenetre();
     }
-    else if (!strcmp(noeud->nom_balise, "titre") || !strcmp(noeud->nom_balise, "important"))
+    else if (!strcmp(noeud->nom_balise, "titre") || !strcmp(noeud->nom_balise, "important")) // Cas : début titre ou début mot important
     {
         est_important = 1;
     }
-    else if (!strcmp(noeud->nom_balise, "/titre") || !strcmp(noeud->nom_balise, "/important"))
+    else if (!strcmp(noeud->nom_balise, "/titre") || !strcmp(noeud->nom_balise, "/important")) // Cas : fin titre ou fin mot important
     {
-        finaliser_ligne();
         est_important = 0;
     }
-    else if (!strcmp(noeud->nom_balise, "item"))
+    else if (!strcmp(noeud->nom_balise, "item")) // Cas : début item
     {
-        printf("#  ");
-        position += 3;
+        debuter_ligne(); // On débute la ligne avec le décalage
+        printf("#  "); // Puis on ajoute le début de l'item
+        position += 3; // Et on modifie la position en accord avec l'ajout effectué
     }
-    else if (!strcmp(noeud->nom_balise, "/item"))
+    else if (!strcmp(noeud->nom_balise, "liste")) // Cas : début liste
+    {
+        tabulations += 2; // On décale de 2 vers la droite
+        debuter_ligne(); // Puis on dessine le début de la ligne
+    }
+    else if (!strcmp(noeud->nom_balise, "/liste")) // Cas : fin liste
+    {
+        tabulations -= 2; // On redécale vers la gauche
+    }
+    else if (!strcmp(noeud->nom_balise, "br/")) // Cas : retour à la ligne forcé
     {
         finaliser_ligne();
-        debuter_ligne();
-    }
-    else if (!strcmp(noeud->nom_balise, "liste"))
-    {
-        debuter_ligne();
-        tabulations += 2;
-    }
-    else if (!strcmp(noeud->nom_balise, "/liste"))
-    {
-        finaliser_ligne();
-        tabulations -= 2;
-    }
-    else if (!strcmp(noeud->nom_balise, "br/"))
-    {
-        finaliser_ligne();
-        debuter_ligne();
     }
 }
 
 void rendre_texte(t_noeud *noeud_a_parcourir)
 {
+    // On appelle la fonction qui gère le type de noeud et le traitement à effectuer
     traiter_noeud(noeud_a_parcourir);
-    if (noeud_a_parcourir->fils != NULL)
+    if (noeud_a_parcourir->fils != NULL) // On parcours tous les fils
     {
         rendre_texte(noeud_a_parcourir->fils);
     }
-    if (noeud_a_parcourir->pt_frere != NULL)
+    if (noeud_a_parcourir->pt_frere != NULL) // Puis on parcours tous les fils des frères 
     {
         rendre_texte(noeud_a_parcourir->pt_frere);
     }

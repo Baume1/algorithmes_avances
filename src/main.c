@@ -24,13 +24,13 @@ int main(int argc, char **argv)
     exit(-2);
   }
 
-  initialiser_arbre(); // Initialise l'arbre et modifie le comportement du programme en cascade
+  initialiser_arbre(); // Initialise l'arbre et modifie le comportement du programme en cascade, à commenter avec libérer arbre si on ne l'utilise pas
   amorcer(argv[1]);
   texte_enrichi();
 
-  sauvegarder();
+  // A décommenter pour utiliser les fonctions
+  // sauvegarder();
   // afficher_arbre(racine);
-
   rendre_texte(racine);
 
   fclose(mon_fichier);
