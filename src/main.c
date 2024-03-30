@@ -24,11 +24,11 @@ int main(int argc, char **argv)
     exit(-2);
   }
 
-  initialiser_arbre(); // Initialise l'arbre et modifie le comportement du programme en cascade, à commenter avec libérer arbre si on ne l'utilise pas
+  initialiser_arbre(); // Initialise l'arbre et modifie le comportement du programme en cascade, à commenter si on ne souhaite pas l'utiliser
   amorcer(argv[1]);
   texte_enrichi();
 
-  // A décommenter pour utiliser les fonctions
+  // Décommenter pour utiliser les fonctions
   if(utiliser_arbre){
     // sauvegarder();
     // afficher_arbre(racine);

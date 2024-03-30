@@ -4,6 +4,7 @@
 #include <ctype.h> // Pour la fonction isspace()
 
 #include "terminaux.h"
+#include "arbre.h"
 
 void amorcer(char *nom_fichier)
 {

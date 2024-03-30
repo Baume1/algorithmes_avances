@@ -1,6 +1,6 @@
 #include "affichage.h"
 
-const int taille_fenetre = 50; // Taille maximale de la fenêtre
+#define taille_fenetre 50 // Taille maximale de la fenêtre
 int fenetre_actu = taille_fenetre; // Taille de la fenêtre actuelle
 
 int position = 0; // On démarre à 0
