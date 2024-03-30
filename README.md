@@ -23,7 +23,7 @@ La partie Python se trouve dans le dossier `visu_arbre/src`. Avant d'exécuter c
 
 1. Décommentez les lignes `initialiser_arbre()` et `sauvegarder()` dans le code C.
 2. Compilez et exécutez le code C.
-3. Copiez le résultat généré dans le dossier `src` et collez-le dans un fichier `.json` dans le dossier `visu_arbre`.
+3. Copiez le résultat généré dans le fichier `arbre_json.txt` se trouvant dans le dossier `src` et collez-le dans un fichier `.json` dans le dossier `visu_arbre`.
 4. Supprimez la dernière virgule du fichier `.json`.
 5. Dans le fichier `main.py` situé dans `visu_arbre/src`, modifiez la variable `nom_fichier` sans extension ni chemin pour quelle corresponde à votre fichier `.json`.
 
