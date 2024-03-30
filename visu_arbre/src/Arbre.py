@@ -32,8 +32,6 @@ class Arbre:
             # print(noeud["nom"],noeud["fils"])
             label_correct = noeud["nom"] if noeud["nom"] != "mot" else "mot : " + noeud["valeur"]
             dot.node(name=noeud["adresse"], label = label_correct, shape="circle")
-
-        for noeud in self.liste:
             if(noeud["pere"] != '0'):
                 dot.edge(tail_name=noeud["pere"], head_name=noeud["adresse"], label="enfant")
             

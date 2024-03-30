@@ -1,6 +1,6 @@
 from Arbre import *
 
-nom_fichier = "arbre3"
+nom_fichier = "arbre1"
 
 test = Arbre()
 test.charger(nom_fichier)
