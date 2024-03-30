@@ -1,4 +1,4 @@
-opt = -Wall -Wextra
+opt = 
 all: main clean
 
 main: main.o terminaux.o non_terminaux.o arbre.o affichage.o

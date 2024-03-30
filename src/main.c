@@ -29,12 +29,16 @@ int main(int argc, char **argv)
   texte_enrichi();
 
   // A décommenter pour utiliser les fonctions
-  // sauvegarder();
-  // afficher_arbre(racine);
-  rendre_texte(racine);
+  if(utiliser_arbre){
+    // sauvegarder();
+    // afficher_arbre(racine);
+    rendre_texte(racine);
+  }
 
   fclose(mon_fichier);
-  liberer_arbre(racine);
+  if(utiliser_arbre){
+    liberer_arbre(racine);
+  }
 
   return 0;
 }

@@ -1,10 +1,11 @@
 #include "main.h"
 #include "arbre.h"
 
-FILE *fichier_sauvegarde;
+FILE *fichier_sauvegarde; // Au cas où on veut sauvegarder l'arbre
 
 void initialiser_arbre()
 {
+    // On initialise la racine
     curr_node = malloc(sizeof(t_noeud));
 
     strcpy(curr_node->nom_balise, "texte_enrichi");
@@ -16,7 +17,7 @@ void initialiser_arbre()
 
     racine = curr_node;
 
-    utiliser_arbre = 1;
+    utiliser_arbre = 1; // On précise au programme qu'on active l'utilisation de l'arbre
 }
 
 void remonter_noeuds_eg(char *nom_balise) // Remonter tous les noeuds qui ont le même nom que celui en paramètre
@@ -102,63 +103,31 @@ void ajouter_noeud()
 
 void maj_arbre()
 {
-    ///*
     // Si on arrive à la fin d'une chaîne sans br/ mais qu'on ouvre une balise, on retourne à la racine de la suite de mots
     if (curr_tag[0] != '/' && strcmp(curr_tag, curr_node->nom_balise) && strcmp(curr_tag, "br/"))
     {
         remonter_noeuds_eg("mot");
     }
-    ajouter_noeud();
+    ajouter_noeud(); // On ajoute le noeud dans tous les cas
     if (curr_node->pere != NULL)
     {
         if (!strcmp(curr_node->pere->nom_balise, "mot") && strcmp(curr_node->nom_balise, "mot") || !strcmp(curr_node->nom_balise, "br/"))
         {
+            // Puis on remonte à la racine des mots si on arrive à la fin de la "phrase"
             remonter_noeuds_eg("mot");
         }
     }
     if (curr_tag[0] == '/')
     {
+        // Ou bien si on arrive à la fin d'une balise, on remonte tous les mots et on remonte jusqu'au père qui contient cette suite de mots.
         remonter_noeuds_eg("mot");
         remonter_pere();
     }
-    // afficher_noeud_actuel();
-    //*/
-
-    /*
-    if (!strcmp(curr_tag, "mot"))
-    {
-        ajouter_noeud();
-    }
-    else
-    {
-        if (curr_tag[0] == '/')
-        {
-            ajouter_noeud();
-            remonter_noeuds_eg("mot");
-            remonter_pere();
-        }
-        else if (!strcmp(curr_node->nom_balise, "mot") || !strcmp(curr_tag, "br/"))
-        {
-            remonter_noeuds_eg("mot");
-        }
-        else if (curr_node->pere != NULL)
-        {
-            if (!strcmp(curr_node->pere->nom_balise, "mot") && curr_node->nom_balise[0] != '/')
-            {
-                remonter_noeuds_eg("mot");
-            }
-        }
-        else if (strcmp(curr_tag, "br/")) // Si c'est différent de br/
-        {
-            ajouter_noeud();
-        }
-    }
-    //*/
 }
 
 void afficher_noeud_actuel()
 {
-    /*
+    ///* Affiche le neoud dans la console
     printf("\nAdresse du noeud : %X\n", curr_node);
     printf("Balise du noeud : %s\n", curr_node->nom_balise);
     printf("Valeur de la balise : %s\n", curr_node->valeur_balise);
@@ -166,7 +135,9 @@ void afficher_noeud_actuel()
     printf("Son fils : %X\n", curr_node->fils);
     printf("Son gd frere : %X\n", curr_node->gd_frere);
     printf("Son pt frere : %X\n", curr_node->pt_frere);
-    */
+    //*/
+    
+    /* Utile pour débugger le code et pouvoir directement visualiser l'arbre s'il s'arrête abruptement
     printf("\n{");
     printf("\n\"adresse\": \"%X\",", curr_node);
     printf("\n\"nom\": \"%s\",", curr_node->nom_balise);
@@ -176,30 +147,20 @@ void afficher_noeud_actuel()
     printf("\n\"pt_frere\": \"%X\",", curr_node->pt_frere);
     printf("\n\"gd_frere\": \"%X\"", curr_node->gd_frere);
     printf("\n},");
+    //*/
 }
 
 void sauvegarder()
 {
     fichier_sauvegarde = fopen("arbre_json.txt", "w");
-    fprintf(fichier_sauvegarde, "[");
-    /*
-    fprintf(fichier_sauvegarde, "\n{");
-    fprintf(fichier_sauvegarde, "\n\"adresse\": \"%X\",", racine);
-    fprintf(fichier_sauvegarde, "\n\"nom\": \"%s\",", racine->nom_balise);
-    fprintf(fichier_sauvegarde, "\n\"valeur\": \"%s\",", racine->valeur_balise);
-    fprintf(fichier_sauvegarde, "\n\"pere\": \"%X\",", racine->pere);
-    fprintf(fichier_sauvegarde, "\n\"fils\": \"%X\",", racine->fils);
-    fprintf(fichier_sauvegarde, "\n\"pt_frere\": \"%X\",", racine->pt_frere);
-    fprintf(fichier_sauvegarde, "\n\"gd_frere\": \"%X\"", racine->gd_frere);
-    fprintf(fichier_sauvegarde, "\n}");
-    */
-    sauvegarder_arbre(racine);
-    fprintf(fichier_sauvegarde, "\n]");
+    fprintf(fichier_sauvegarde, "["); // On démarre avec la liste
+    sauvegarder_arbre(racine); // On sauvegarde tous les noeuds selon le format json
+    fprintf(fichier_sauvegarde, "\n]"); // Puis on ferme la liste (attention, il reste une virgule au dernier noeud ce qui pose problème)
 }
 
 void sauvegarder_noeud(t_noeud *noeud_a_sauvegarder)
 {
-    // Sauvegarder dans le fichier selon une certaine syntaxe
+    // Sauvegarder dans le fichier selon une certaine syntaxe (celle du json en l'occurence)
     fprintf(fichier_sauvegarde, "\n{");
     fprintf(fichier_sauvegarde, "\n\"adresse\": \"%X\",", noeud_a_sauvegarder);
     fprintf(fichier_sauvegarde, "\n\"nom\": \"%s\",", noeud_a_sauvegarder->nom_balise);
@@ -213,6 +174,7 @@ void sauvegarder_noeud(t_noeud *noeud_a_sauvegarder)
 
 void sauvegarder_arbre(t_noeud *noeud_a_parcourir)
 {
+    // On parcours récursivement l'arbre (les fils en priorité) et on sauvegarde le noeud à chaque fois
     sauvegarder_noeud(noeud_a_parcourir);
     if (noeud_a_parcourir->fils != NULL)
     {
@@ -237,6 +199,7 @@ void afficher_noeud(t_noeud *noeud_a_afficher)
 
 void afficher_arbre(t_noeud *noeud_a_parcourir)
 {
+    // On parcours récursivement l'arbre (les fils en priorité) et on affiche le noeud à chaque fois
     afficher_noeud(noeud_a_parcourir);
     if (noeud_a_parcourir->fils != NULL)
     {
@@ -250,6 +213,7 @@ void afficher_arbre(t_noeud *noeud_a_parcourir)
 
 void liberer_arbre(t_noeud *noeud_a_parcourir)
 {
+    // On parcours récursivement l'arbre (les fils en priorité) et on libère le noeud à chaque fois
     if (noeud_a_parcourir->fils != NULL)
     {
         liberer_arbre(noeud_a_parcourir->fils);
