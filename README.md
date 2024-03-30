@@ -27,4 +27,4 @@ La partie Python se trouve dans le dossier `visu_arbre/src`. Avant d'exécuter c
 4. Supprimez la dernière virgule du fichier `.json`.
 5. Dans le fichier `main.py` situé dans `visu_arbre/src`, modifiez la variable `nom_fichier` sans extension ni chemin pour quelle corresponde à votre fichier `.json`.
 
-Une fois ces étapes effectuées, vous pouvez exécuter le code Python **dans le src de visu arbre** pour visualiser l'arbre de données.
+Une fois ces étapes effectuées, vous pouvez exécuter le code Python **dans le src de visu arbre** pour visualiser l'arbre de données se trouvant dans le dossier image.
