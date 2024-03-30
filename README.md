@@ -1,4 +1,4 @@
-# Mon Projet
+# Le Projet
 
 Ce projet est divisé en deux parties : une partie en C et une partie en Python. \
 Voici les instructions pour chaque partie :
