@@ -18,6 +18,9 @@ Différentes fonctions peuvent être activées en décommentant les lignes corre
 - `rendre_texte(racine)` : Génère du texte à partir de l'arbre de données.
 
 ## Partie Python
+> Pour installer graphviz, lancez "py -m pip install grapviz". \
+> Si il y a eu une erreur lorsque vous lancez le programme, installez la libriairie (le zip) via [le site graphviz](https://graphviz.org/download/) \
+> Une fois installé, décompressez le bin dans le bin de `visu_arbre`, puis relancez le programme.
 
 La partie Python se trouve dans le dossier `visu_arbre/src`. Avant d'exécuter cette partie, vous devez effectuer les étapes suivantes dans la partie C :
 
