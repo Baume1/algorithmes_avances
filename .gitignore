@@ -24,13 +24,14 @@
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
 *.dylib
 
 # Executables
-*.exe
+src/*.exe
+!visu_arbre/*.exe
+
 *.out
 *.app
 *.i*86
